@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>B'sinceré — Maintaining Authenticity</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+
+      
+      * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Lato', sans-serif; background-color: #fdf6ee; color: #3b2a1a; font-weight: 400; }
+
+      
+      nav {
+  background-color: #3b2a1a;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 40px;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  color: #c9a84c;
+  font-size: 26px;
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.nav-links a {
+  color: #f5e6d0;
+  text-decoration: none;
+  margin-left: 28px;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: #c9a84c; }
+
+.hamburger {
+  display: none;
+  font-size: 24px;
+  color: #c9a84c;
+  cursor: pointer;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-wrap: wrap;
+    padding: 16px 20px;
+  }
+
+  .hamburger {
+    display: block;
+  }
+
+  .nav-links {
+    display: none;
+    width: 100%;
+    flex-direction: column;
+    gap: 0;
+    margin-top: 12px;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-links a {
+    margin-left: 0;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(201,168,76,0.15);
+    font-size: 14px;
+    text-align: center;
+  }
+}
+      
+      .hero {
+        background: linear-gradient(135deg, #3b2a1a 0%, #6b4226 60%, #c9a84c 100%);
+        text-align: center;
+        padding: 120px 24px;
+      }
+      .hero h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 64px;
+        color: #fff;
+        letter-spacing: 4px;
+        margin-bottom: 16px;
+        line-height: 1.2;
+        font-weight: 700;
+        font-style: italic;
+      }
+      .hero p {
+        color: #f5e6d0;
+        font-size: 16px;
+        max-width: 520px;
+        margin: 0 auto 36px;
+        line-height: 1.8;
+        font-weight: 300;
+      }
+      .hero-btn {
+        background-color: #c9a84c;
+        color: #3b2a1a;
+        border: none;
+        padding: 14px 40px;
+        font-size: 14px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        border-radius: 30px;
+        cursor: pointer;
+        transition: background-color 0.3s;
+      }
+      .hero-btn:hover { background-color: #a8832e; }
+
+      
+      .about-badge {
+        display: inline-block;
+        background-color: rgba(201,168,76,0.2);
+        color: #c9a84c;
+        font-size: 12px;
+        font-weight: 700;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        padding: 6px 18px;
+        border-radius: 20px;
+        margin-bottom: 16px;
+      }
+
+      
+      .about {
+        padding: 80px 40px;
+        text-align: center;
+        background: linear-gradient(160deg, #fdf6ee 0%, #f5e6d0 50%, #e8d5b7 100%);
+        position: relative;
+        overflow: hidden;
+      }
+      .about::before {
+        content: '';
+        position: absolute;
+        top: -80px; right: -80px;
+        width: 350px; height: 350px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(201,168,76,0.12), transparent 70%);
+        pointer-events: none;
+      }
+      .about::after {
+        content: '';
+        position: absolute;
+        bottom: -60px; left: -60px;
+        width: 280px; height: 280px;
+        border-radius: 50%;
+        background: radial-gradient(circle, rgba(107,66,38,0.08), transparent 70%);
+        pointer-events: none;
+      }
+      .about h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 48px;
+        color: #3b2a1a;
+        margin-bottom: 20px;
+        letter-spacing: 1px;
+        font-weight: 700;
+        font-style: italic;
+      }
+      .about p {
+        color: #6b4c35;
+        font-size: 15px;
+        line-height: 1.9;
+        max-width: 620px;
+        margin: 0 auto 16px;
+        font-weight: 300;
+      }
+      .about-values {
+        display: flex;
+        justify-content: center;
+        gap: 24px;
+        margin-top: 50px;
+        flex-wrap: wrap;
+      }
+      .value-card {
+        background-color: #fff;
+        border-radius: 16px;
+        padding: 32px 24px;
+        width: 220px;
+        box-shadow: 0 4px 20px rgba(59,42,26,0.08);
+        border-bottom: 3px solid #c9a84c;
+        transition: transform 0.3s;
+      }
+      .value-card:hover { transform: translateY(-6px); }
+      .value-card i { font-size: 28px; color: #c9a84c; margin-bottom: 14px; }
+      .value-card h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 22px;
+        color: #3b2a1a;
+        margin-bottom: 8px;
+        font-weight: 700;
+        font-style: italic;
+      }
+      .value-card p { font-size: 13px; color: #9a7a5a; line-height: 1.7; }
+
+
+      .services {
+        padding: 80px 40px;
+        text-align: center;
+        background-color: #3b2a1a;
+      }
+      .services .about-badge {
+        background-color: rgba(201,168,76,0.2);
+        color: #c9a84c;
+      }
+      .services h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 48px;
+        color: #fff;
+        margin-bottom: 12px;
+        letter-spacing: 1px;
+        font-weight: 700;
+        font-style: italic;
+      }
+      .services-sub {
+        color: #c9a84c;
+        font-size: 15px;
+        margin-bottom: 50px;
+        font-weight: 300;
+        letter-spacing: 1px;
+      }
+      .services-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+      }
+      .service-card {
+        background-color: rgba(255,255,255,0.05);
+        border: 1px solid rgba(201,168,76,0.25);
+        border-radius: 16px;
+        padding: 36px 24px;
+        width: 240px;
+        text-align: center;
+        transition: transform 0.3s, background-color 0.3s;
+      }
+      .service-card:hover { transform: translateY(-6px); background-color: rgba(201,168,76,0.1); }
+      .service-icon {
+        width: 60px; height: 60px;
+        background-color: rgba(201,168,76,0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 20px;
+      }
+      .service-icon i { font-size: 24px; color: #c9a84c; }
+      .service-card h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 22px;
+        color: #fff;
+        margin-bottom: 10px;
+        font-weight: 700;
+        font-style: italic;
+      }
+      .service-card p { color: #c4a882; font-size: 13px; line-height: 1.8; font-weight: 300; }
+
+      
+      .contact {
+        padding: 80px 40px;
+        text-align: center;
+        background: linear-gradient(160deg, #fdf6ee 0%, #f5e6d0 50%, #e8d5b7 100%);
+      }
+      .contact h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 48px;
+        color: #3b2a1a;
+        margin-bottom: 12px;
+        font-weight: 700;
+        font-style: italic;
+      }
+      .contact .services-sub { color: #9a7a5a; }
+      .contact-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+        margin-top: 40px;
+      }
+      .contact-card {
+        background-color: #fff;
+        border-radius: 16px;
+        padding: 32px 24px;
+        width: 200px;
+        box-shadow: 0 4px 20px rgba(59,42,26,0.08);
+        border-bottom: 3px solid #c9a84c;
+        transition: transform 0.3s;
+      }
+      .contact-card:hover { transform: translateY(-6px); }
+      .contact-icon {
+        width: 56px; height: 56px;
+        background-color: rgba(201,168,76,0.15);
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto 16px;
+      }
+      .contact-icon i { font-size: 22px; color: #c9a84c; }
+      .contact-card h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 20px;
+        color: #3b2a1a;
+        margin-bottom: 8px;
+        font-weight: 700;
+        font-style: italic;
+      }
+      .contact-card p { color: #9a7a5a; font-size: 13px; line-height: 1.7; }
+
+      
+      footer {
+        background-color: #3b2a1a;
+        text-align: center;
+        padding: 30px 20px;
+        border-top: 2px solid #c9a84c;
+      }
+      footer p {
+        color: #c9a84c;
+        font-size: 13px;
+        letter-spacing: 1px;
+      }
+
+      
+      @media (max-width: 768px) {
+        nav { flex-direction: column; gap: 16px; padding: 18px 20px; text-align: center; }
+        .nav-links a { margin-left: 10px; margin-right: 10px; font-size: 13px; }
+        .hero { padding: 80px 20px; }
+        .hero h1 { font-size: 36px; }
+        .hero p { font-size: 15px; }
+        .about { padding: 60px 20px; }
+        .about h2 { font-size: 34px; }
+        .value-card { width: 100%; max-width: 320px; }
+        .services { padding: 60px 20px; }
+        .services h2 { font-size: 34px; }
+        .service-card { width: 100%; max-width: 320px; }
+        .contact { padding: 60px 20px; }
+        .contact h2 { font-size: 34px; }
+        .contact-card { width: 100%; max-width: 320px; }
+      }
+
+    </style>
+  </head>
+  <body>
+ <nav>
+  <div class="nav-logo">B'sinceré</div>
+  <div class="hamburger" onclick="toggleMenu()">
+    <i class="fas fa-bars"></i>
+  </div>
+  <div class="nav-links" id="nav-links">
+  <a href="index.html" onclick="toggleMenu()">Home</a>
+  <a href="about.html" onclick="toggleMenu()">About Us</a>
+  <a href="index.html#services" onclick="toggleMenu()">Services</a>
+  <a href="index.html#contact" onclick="toggleMenu()">Contact Us</a>
+</div>
+</nav>
+    <div class="hero" id="home">
+      <h1>Welcome to B'sinceré</h1>
+      <p>Maintaining Authenticity in Every Step — Premium hair strands, bundles, wigs & accessories crafted for the bold and beautiful</p>
+      <button class="hero-btn">Shop Services</button>
+    </div>
+    <div class="about" id="about">
+      <div class="about-badge">Our Story</div>
+      <h2>About Us</h2>
+      <p>At B'sinceré, we are dedicated to maintaining authenticity in everything we do. Our mission is to provide genuine and heartfelt services that resonate with our clients' true selves.</p>
+      <p>From silky healthy hair strands to full luxurious wigs, every piece in our collection is carefully selected to give you the most natural, glamorous look possible.</p>
+      <div class="about-values">
+        <div class="value-card">
+          <i class="fas fa-heart"></i>
+          <h3>Made with Love</h3>
+          <p>Every piece is handpicked with care and attention to quality</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-crown"></i>
+          <h3>Premium Quality</h3>
+          <p>Only the finest hair products make it into our collection</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-star"></i>
+          <h3>You Come First</h3>
+          <p>Your satisfaction and confidence is our number one priority</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="services" id="services">
+      <div class="about-badge">What We Offer</div>
+      <h2>Our Services</h2>
+      <p class="services-sub">Handpicked premium hair products for every woman</p>
+      <div class="services-grid">
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-leaf"></i></div>
+          <h3>Healthy Hair Strands</h3>
+          <p>Natural, strong and silky hair strands sourced for maximum health and shine.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-layer-group"></i></div>
+          <h3>Hair Bundles</h3>
+          <p>Premium quality bundles in a variety of textures — straight, wavy, curly and kinky.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-crown"></i></div>
+          <h3>Wigs</h3>
+          <p>Luxurious full wigs crafted for a natural undetectable look in multiple lengths and densities.</p>
+        </div>
+        <div class="service-card">
+          <div class="service-icon"><i class="fas fa-shopping-bag"></i></div>
+          <h3>Wig Accessories</h3>
+          <p>Everything you need to maintain, install and care for your wigs — caps, glue, edge control and more.</p>
+        </div>
+      </div>
+    </div>
+    <div class="contact" id="contact">
+      <div class="about-badge">Get In Touch</div>
+      <h2>Contact Us</h2>
+      <p class="services-sub">We'd love to hear from you — reach out anytime</p>
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <h3>Call Us</h3>
+          <p>09129785284</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <h3>Email Us</h3>
+          <p>bsincere@gmail.com</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>Find Us</h3>
+          <p>Kwara, Nigeria</p>
+        </div>
+        <div class="contact-card">
+          <div class="contact-icon"><i class="fab fa-instagram"></i></div>
+          <h3>Instagram</h3>
+          <p>@bsincere_hair</p>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <p>© 2026 B'sinceré — Maintaining Authenticity. All Rights Reserved.</p>
+    </footer>
+<script>
+  function toggleMenu() {
+    const nav = document.getElementById('nav-links');
+    nav.classList.toggle('open');
+  }
+</script>
+  </body>
+  <a href="about.html">Go to About Page</a>
+</html>

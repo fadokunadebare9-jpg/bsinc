@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html>
+    <head>
+<title>B'sinceré — About Us</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;0,700;1,600;1,700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <style>
+         * { margin: 0; padding: 0; box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Lato', sans-serif; background-color: #fdf6ee; color: #3b2a1a; }
+nav {
+        background-color: #3b2a1a;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 18px 40px;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+      }
+      nav .nav-logo {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 28px;
+        color: #fdf6ee;
+        font-weight: 700;
+      }
+        nav .nav-links a {
+            color: #fdf6ee;
+            text-decoration: none;
+            margin-left: 30px;
+            font-size: 16px;
+            transition: color 0.3s ease;
+        }
+        nav .nav-links a:hover {
+            color: #e0c097;
+        }
+        nav .hamburger {
+            display: none;
+            font-size: 24px;
+            color: #fdf6ee;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            nav .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 40px;
+                background-color: #3b2a1a;
+                padding: 20px;
+                border-radius: 8px;
+            }
+            nav .nav-links a {
+                margin: 10px 0;
+            }
+            nav .hamburger {
+                display: block;
+            }
+        }
+        .about-content {
+            padding: 80px 40px;
+        background: linear-gradient(160deg, #fdf6ee 0%, #f5e6d0 50%, #e8d5b7 100%);
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        }
+        .about-content h2 {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 32px;
+            color: #3b2a1a;
+            margin-bottom: 20px;
+        }
+        .about-content p {
+            font-size: 18px;
+            color: #3b2a1a;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto 40px auto;
+        }
+        .values {
+        padding: 80px 40px;
+        background-color: #3b2a1a;
+        text-align: center;
+      }
+      .values h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 48px;
+        color: #fff;
+        font-weight: 700;
+        font-style: italic;
+        margin-bottom: 12px;
+        }
+        .values-sub {
+        color: #c9a84c;
+        font-size: 15px;
+        margin-bottom: 50px;
+        font-weight: 300;
+        letter-spacing: 1px;
+      }
+      .values-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+      }
+        .value-card {
+        background-color: #fdf6ee;
+        border-radius: 12px;    
+        padding: 30px;
+        width: 250px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease
+        }
+        .value-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        }
+        .value-card i {
+        font-size: 36px;
+        color: #3b2a1a;
+        margin-bottom: 20px;
+        }
+        .value-card h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 22px;
+        color: #3b2a1a;
+        margin-bottom: 12px;
+        }
+        .value-card p {
+        font-size: 16px;
+        color: #3b2a1a;
+        line-height: 1.4;
+        }
+        .tips {
+        padding: 80px 40px;
+        background: linear-gradient(160deg, #e8d5b7 0%, #f5e6d0 50%, #fdf6ee 100%);
+        text-align: center;
+        }
+        .tips h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 48px;
+        color: #3b2a1a;
+        font-weight: 700;
+        font-style: italic;
+        margin-bottom: 12px;
+        }
+        .tips-sub {
+        color: #c9a84c;
+        font-size: 15px;
+        margin-bottom: 50px;
+        font-weight: 300;
+        letter-spacing: 1px;
+        }
+        .tips-grid {
+        display: flex;  
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 24px;
+        }
+        .tip-card {
+        background-color: #fdf6ee;
+        border-radius: 12px;
+        padding: 30px;
+        width: 250px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        transition: transform 0.3s ease, box-shadow 0.3s ease
+        }
+        .tip-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 16px rgba(0, 0,
+0, 0.2);
+        }
+        .tip-card i {
+        font-size: 36px;
+        color: #3b2a1a;
+        margin-bottom: 20px;
+        }
+        .tip-card h3 {
+        font-family: 'Cormorant Garamond', serif;   
+        font-size: 22px;
+        color: #3b2a1a;
+        margin-bottom: 12px;
+        }
+        .tip-card p {
+        font-size: 16px;
+        color: #3b2a1a;     
+        line-height: 1.4;
+        }
+         footer {   
+        background-color: #3b2a1a;
+        color: #fdf6ee;
+        text-align: center;
+        padding: 20px;
+        font-size: 14px;    
+        }
+        </style>
+    </head>
+    <body>
+        <nav>
+    <div class="nav-logo">B'sinceré</div>
+    <div class="hamburger" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <div class="nav-links" id="nav-links">
+        <a href="index.html" onclick="toggleMenu()">Home</a>
+        <a href="about.html" onclick="toggleMenu()">About Us</a>
+        <a href="index.html#services" onclick="toggleMenu()">Services</a>
+        <a href="index.html#contact" onclick="toggleMenu()">Contact Us</a>  
+    </div>
+</nav>
+<div class="page-hero"
+<h1>About B'sinceré</h1>
+      <p>Maintaining Authenticity — our story, our values, our passion for your beauty</p>
+    </div>
+    <div class="about-content">
+      <h2>Our Journey</h2>
+      <p>Founded in 2024, B'sinceré was born from a passion for authentic beauty and a desire to empower individuals to express themselves through their hair. We started as a small boutique offering premium hair strands and bundles, and quickly grew into a full-service brand providing wigs and accessories that celebrate individuality and confidence.</p>
+      <h2>Our Values</h2>
+      <p>At B'sinceré, we believe in maintaining authenticity in every step of our journey. We are committed to sourcing the highest quality materials, ensuring ethical practices, and fostering a community where everyone feels valued and beautiful. Our mission is to provide products that not only enhance your look but also boost your confidence and self-expression.</p>
+      <h2>Our Team</h2>
+      <p>Our team is made up of passionate individuals who are dedicated to delivering exceptional products and services. From our skilled artisans who craft each piece with care to our customer service team who are always ready to assist you, we are here to ensure that your experience with B'sinceré is nothing short of extraordinary.</p>
+    </div>
+    <!-- VALUES -->
+    <div class="values">
+      <div class="badge">What We Stand For</div>
+      <h2>Our Values</h2>
+      <p class="values-sub">The principles that guide everything we do</p>
+      <div class="values-grid">
+        <div class="value-card">
+          <i class="fas fa-heart"></i>
+          <h3>Made with Love</h3>
+          <p>Every piece is handpicked with care, attention and genuine love for our customers.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-leaf"></i>
+          <h3>Ethically Sourced</h3>
+          <p>We are committed to ethical sourcing practices, ensuring that our products are made with integrity and respect for people and the planet.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-users"></i>
+          <h3>Community Focused</h3>
+          <p>We believe in building a strong community where everyone feels valued, supported and beautiful.</p>
+        </div>
+        <div class="value-card">
+          <i class="fas fa-certificate"></i>
+          <h3>Premium Quality</h3>
+          <p>We are dedicated to providing products of the highest quality, ensuring that every strand, bundle and wig meets our rigorous standards.</p>
+        </div>
+      </div>    
+    </div>
+    <!-- WIG TIPS -->
+    <div class="tips">
+      <div class="badge">Hair Care</div>
+      <h2>Tips to Manage Your Wigs</h2>
+      <p class="tips-sub">Simple habits that keep your hair looking fresh and lasting longer</p>
+      <div class="tips-grid">
+        <div class="tip-card">
+          <i class="fas fa-shower"></i>
+          <h3>Wash Regularly</h3>
+          <p>Keep your wigs clean by washing them every 7-10 wears with a gentle shampoo and conditioner.</p>
+        </div>
+        <div class="tip-card">
+          <i class="fas fa-spray-can"></i>
+          <h3>Use Heat Protectant</h3>
+          <p>Before styling with heat tools, always apply a heat protectant spray to prevent damage and maintain the integrity of the hair.</p>
+        </div>
+        <div class="tip-card">
+          <i class="fas fa-hat  "></i>
+          <h3>Store Properly</h3>   
+            <p>When not in use, store your wigs on a wig stand or mannequin head to maintain their shape and prevent tangling.</p>
+        </div>
+        <div class="tip-card">
+          <i class="fas fa-brush"></i>
+          <h3>Detangle Gently</h3>
+          <p>Use a wide-tooth comb or wig brush to detangle your wigs, starting from the ends and working your way up to avoid breakage.</p>
+        </div>
+      </div>
+      <footer>
+      <p>© 2026 B'sinceré — Maintaining Authenticity. All Rights Reserved.</p>
+    </footer>
+    <script>
+      function toggleMenu() {
+        const navLinks = document.getElementById('nav-links');
+        navLinks.style.display = navLinks.style.display === 'flex' ? 'none' : 'flex';
+      }
+    </script>
+    </body>
+    </html> 
